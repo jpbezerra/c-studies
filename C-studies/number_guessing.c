@@ -5,7 +5,7 @@
 
 enum Difficulty{
     easy = 1,
-    normal = 2
+    medium = 2
 };
 
 const int MIN = 1;
