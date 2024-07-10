@@ -77,7 +77,7 @@
          
       }
 
-      if (diff == easy) {
+      if (!wrong_medium) {
          printf("\n*********************\n");
          printf("FINAL SCORE: %d/%d\n", score, quest_size);
          printf("*********************\n");
@@ -86,9 +86,9 @@
          printf("You had a rate of %.2f!", rate);
       }
       
-      else if (diff == medium) {
+      else if (wrong_medium) {
          printf("\n*********************\n");
-         printf("Unfortunately you got the question number %d\n wrong!", quest_miss);
+         printf("Unfortunately you got the question number %d wrong!\n", quest_miss);
          printf("I told you that this mode is kinda hard!");
          printf("*********************\n");
       }
