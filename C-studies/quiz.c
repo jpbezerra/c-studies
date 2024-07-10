@@ -28,9 +28,9 @@ int main() {
                         "A. Vaduz", "B. Berna", "C. Liubliana", "D. Bratislava",
    };
                            
-   char answers[] = {'B', 'A', 'B', 'D', 'C', 'A'};
    int quest_size = sizeof(questions)/sizeof(questions[0]);
-
+   char answers[quest_size] = {'B', 'A', 'A', 'B', 'D', 'C', 'A'};
+    
    enum Difficulty diff;
 
    printf("Choose your difficulty Easy (1) or Medium (2)? ");
@@ -52,19 +52,20 @@ int main() {
       for(int j = (i * 4); j < (i * 4) + 4; j++) {
          printf("%s\n", options[j]);
       }
-
-      printf("guess: ");
-      scanf("%c ", &guess);
-
+      
+      scanf(" %c", &guess);
       guess = toupper(guess);
 
+      printf("guess: %c", guess);
+
       if(guess == answers[i]) {
-         printf("CORRECT!\n");
+         printf("\nCORRECT!\n");
          score++;
       }
 
       else {
-         printf("WRONG!\n");
+         printf("\nWRONG!");
+         printf("The correct answer was: %c\n", answers[i]);
          if (diff == medium) {
             wrong_medium = true;   
          }
@@ -77,7 +78,7 @@ int main() {
          
    }
 
-   if (!wrong_medium) {
+   if (diff == easy) {
       printf("\n*********************\n");
       printf("FINAL SCORE: %d/%d\n", score, quest_size);
       printf("*********************\n");
@@ -86,11 +87,19 @@ int main() {
       printf("You had a rate of %.2f!", rate);
    }
       
-   else if (wrong_medium) {
-      printf("\n*********************\n");
-      printf("Unfortunately you got the question number %d wrong!\n", quest_miss);
-      printf("I told you that this mode is kinda hard!");
-      printf("*********************\n");
+   else if (diff == medium) {
+      if (!wrong_medium) {
+         printf("\n*********************\n");
+         printf("Congratulations! Really impressive!");
+         printf("\n*********************\n");
+      }
+      
+      else {
+         printf("\n*********************\n");
+         printf("Unfortunately you got the question number %d wrong!\n", quest_miss);
+         printf("I told you that this mode is kinda hard!");
+         printf("\n*********************\n");
+      }
    }
 
    return 0;
