@@ -4,32 +4,26 @@
 #include <string.h>
 
 float celsius_fahrenheit(float temp, char conv_unit) {
-
     return (conv_unit == 'C') ? (temp - 32) * (5 / (float) 9) : (temp * (9 / (float) 5)) + 32;
 }
 
 float celsius_kelvin(float temp, char conv_unit) {
-
     return (conv_unit == 'C') ? temp - 273.15 : temp + 273.15;
 }
 
 float celsius_rankine(float temp, char conv_unit) {
-
     return (conv_unit == 'C') ? (temp - 491.67) * (5 / (float) 9) : (temp * (9 / (float) 5)) + 491.67;
 }
 
 float fahrenheit_kelvin(float temp, char conv_unit) {
-
     return (conv_unit == 'F') ? ((temp - 273.15) * (9 / (float) 5)) + 32 : ((temp - 32) * (5 / (float) 9)) + 273.15;
 }
 
 float fahrenheit_rankine(float temp, char conv_unit) {
-
     return (conv_unit == 'F') ? temp - 459.67 : temp + 459.67;
 }
 
 float kelvin_rankine(float temp, char conv_unit) {
-
     return (conv_unit == 'K') ? temp * (5 / (float) 9) : temp * 1.8;
 }
 
